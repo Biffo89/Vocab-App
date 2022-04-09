@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VocabApp.view.WordEditorController">
+        <children>
+            <HBox alignment="BOTTOM_RIGHT" layoutX="300.0" layoutY="292.0" spacing="20.0" AnchorPane.bottomAnchor="20.0" AnchorPane.rightAnchor="20.0">
+                <children>
+                    <Button fx:id="addSaveButton" mnemonicParsing="false" text="Add/Save">
+                        <font>
+                            <Font size="15.0" />
+                        </font>
+                    </Button>
+                    <Button fx:id="cancelButton" mnemonicParsing="false" text="Cancel">
+                        <font>
+                            <Font size="15.0" />
+                        </font>
+                    </Button>
+                </children>
+            </HBox>
+            <GridPane alignment="CENTER" hgap="20.0" layoutX="195.0" layoutY="170.0" prefHeight="100.0" AnchorPane.leftAnchor="50.0" AnchorPane.topAnchor="50.0">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                </rowConstraints>
+                <children>
+                    <Label fx:id="targetLanguageLabel" text="Word in French">
+                        <GridPane.margin>
+                            <Insets />
+                        </GridPane.margin>
+                        <font>
+                            <Font size="15.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="baseLanguageLabel" text="Word in English" GridPane.rowIndex="1">
+                        <font>
+                            <Font size="15.0" />
+                        </font>
+                    </Label>
+                    <Label fx:id="audioLocationLabel" layoutX="10.0" layoutY="45.0" text="Audio filename and extension" GridPane.rowIndex="2">
+                        <font>
+                            <Font size="15.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="targetLanguageField" text="" GridPane.columnIndex="1">
+                        <GridPane.margin>
+                            <Insets />
+                        </GridPane.margin>
+                    </TextField>
+                    <TextField fx:id="baseLanguageField" text="" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <GridPane.margin>
+                            <Insets />
+                        </GridPane.margin>
+                    </TextField>
+            <Button fx:id="chooseAudioButton" mnemonicParsing="false" onAction="#chooseAudioButton" text="Choose File..." GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button fx:id="playSoundButton" mnemonicParsing="false" onAction="#playSoundButton" text="🔊" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Button>
+                </children>
+            </GridPane>
+            <HBox spacing="15.0" AnchorPane.bottomAnchor="70.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="170.0">
+                <children>
+                    <Pane prefWidth="250.0">
+                        <children>
+                            <ListView fx:id="targetLanguageAnswersList" layoutY="30.0" prefHeight="130.0" prefWidth="170.0" />
+                            <HBox alignment="CENTER_RIGHT" layoutY="195.0" prefWidth="170.0" spacing="10.0">
+                                <children>
+                                    <Button fx:id="targetLanguageAnswersAddButton" mnemonicParsing="false" text="Add" />
+                                    <Button fx:id="targetLanguageAnswersRemoveButton" mnemonicParsing="false" text="Remove" />
+                                </children>
+                                <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                </padding>
+                            </HBox>
+                            <TextField fx:id="targetLanguageAnswersField" layoutX="10.0" layoutY="170.0" prefWidth="150.0" />
+                            <Label fx:id="targetLanguageAnswersLabel" layoutX="10.0" layoutY="5.0" text="Written Answers in French" />
+                        </children>
+                    </Pane>
+            <Pane layoutX="10.0" layoutY="10.0" prefWidth="250.0">
+               <children>
+                  <ListView fx:id="baseLanguageAnswersList" layoutY="30.0" prefHeight="130.0" prefWidth="170.0" />
+                  <HBox alignment="CENTER_RIGHT" layoutY="195.0" prefWidth="170.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="baseLanguageAnswersAddButton" mnemonicParsing="false" text="Add" />
+                        <Button fx:id="baseLanguageAnswersRemoveButton" mnemonicParsing="false" text="Remove" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+                  <TextField fx:id="baseLanguageAnswersField" layoutX="10.0" layoutY="170.0" prefWidth="150.0" />
+                  <Label fx:id="baseLanguageAnswersLabel" layoutX="10.0" layoutY="5.0" text="Written Answers in English" />
+               </children>
+            </Pane>
+            <Pane fx:id="spokenAnswersPane" layoutX="275.0" layoutY="10.0" prefWidth="250.0">
+               <children>
+                  <ListView fx:id="spokenLanguageAnswersList" layoutY="30.0" prefHeight="130.0" prefWidth="170.0" />
+                  <HBox alignment="CENTER_RIGHT" layoutY="195.0" prefWidth="170.0" spacing="10.0">
+                     <children>
+                        <Button fx:id="spokenLanguageAnswersAddButton" mnemonicParsing="false" text="Add" />
+                        <Button fx:id="spokenLanguageAnswersRemoveButton" mnemonicParsing="false" text="Remove" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+                  <TextField fx:id="spokenLanguageAnswersField" layoutX="10.0" layoutY="170.0" prefWidth="150.0" />
+                  <Label fx:id="spokenAnswersLabel" layoutX="10.0" layoutY="5.0" text="Spoken Answers in French" />
+               </children>
+            </Pane>
+                </children>
+            </HBox>
+        </children>
+</AnchorPane>

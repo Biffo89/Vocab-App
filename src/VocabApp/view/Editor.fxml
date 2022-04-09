@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VocabApp.view.EditorController">
+   <children>
+      <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+             <StackPane prefHeight="100.0">
+                 <children>
+                  <HBox prefHeight="100.0" spacing="20.0">
+                     <children>
+                        <Button fx:id="menuButton" mnemonicParsing="false" onAction="#menuButton" text="⟵ Menu">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="selectLanguageButton" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#selectLanguageButton" text="Select Language">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <StackPane.margin>
+                        <Insets />
+                     </StackPane.margin>
+                     <padding>
+                        <Insets left="20.0" top="20.0" />
+                     </padding>
+                  </HBox>
+                  <Label fx:id="title" text="Word Editor" StackPane.alignment="CENTER_LEFT">
+                     <StackPane.margin>
+                        <Insets bottom="20.0" left="420.0" right="20.0" top="20.0" />
+                     </StackPane.margin>
+                     <font>
+                        <Font size="40.0" />
+                     </font>
+                  </Label>
+                     <HBox alignment="TOP_RIGHT" mouseTransparent="true" prefHeight="100.0">
+                         <children>
+                             <Label fx:id="languageName" alignment="CENTER_RIGHT" contentDisplay="RIGHT" prefHeight="100.0" text="French" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                     <Font size="40.0" />
+                                 </font>
+                                 <padding>
+                                     <Insets left="10.0" right="10.0" />
+                                 </padding>
+                             </Label>
+                             <ImageView fx:id="flag" fitHeight="100.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                     <Image url="@flags/fra.png" />
+                                 </image>
+                        </ImageView>
+                         </children>
+                     </HBox>
+                 </children>
+             </StackPane>
+         </top>
+         <center>
+            <AnchorPane>
+               <children>
+                  <TitledPane fx:id="wordPane" collapsible="false" prefWidth="880.0" text="Words" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <TableView fx:id="wordView">
+                          <columns>
+                            <TableColumn fx:id="targetColumn" prefWidth="75.0" text="French Word" />
+                            <TableColumn fx:id="baseColumn" prefWidth="75.0" text="English Word" />
+                              <TableColumn fx:id="audioColumn" prefWidth="75.0" text="Audio File" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </content>
+                  </TitledPane>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="20.0" prefHeight="100.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Button fx:id="addWordButton" mnemonicParsing="false" onAction="#handleAddWordButton" text="Add New Word...">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="editWordButton" mnemonicParsing="false" onAction="#handleEditWordButton" text="Edit Word...">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="removeWordsButton" layoutX="727.0" layoutY="24.0" mnemonicParsing="false" onAction="#handleRemoveWordsButton" text="Remove Word(s)">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="deleteWordsButton" mnemonicParsing="false" onAction="#handleDeleteWordsButton" text="Delete Word(s)">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="addSelectedWordsButton" layoutX="73.0" layoutY="45.0" mnemonicParsing="false" onAction="#handleAddSelectedWordsButton" text="Add Selected Words to...">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" right="10.0" />
+                     </padding>
+                  </FlowPane>
+               </children>
+            </AnchorPane>
+         </center>
+         <left>
+            <AnchorPane>
+               <children>
+                  <TitledPane fx:id="topicPane" collapsible="false" prefWidth="400.0" text="Topics" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <content>
+                        <ListView fx:id="topicView" BorderPane.alignment="CENTER" />
+                     </content>
+                  </TitledPane>
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="20.0" layoutY="426.0" prefHeight="100.0" vgap="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <Button fx:id="addTopicButton" mnemonicParsing="false" onAction="#handleAddTopicButton" text="Add New Topic...">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="editTopicButton" layoutX="157.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleEditTopicButton" text="Edit Topic Name...">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="importTopicButton" layoutX="96.0" layoutY="65.0" mnemonicParsing="false" text="Import Topic">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="exportTopicButton" layoutX="223.0" layoutY="24.0" mnemonicParsing="false" text="Export Topic">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="deleteTopicButton" layoutX="121.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleDeleteTopicButton" text="Delete Topic">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </FlowPane>
+               </children>
+            </AnchorPane>
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="300.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="VocabApp.view.LauncherController">
+   <center>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="20.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="playButton" mnemonicParsing="false" onAction="#play" text="Play" />
+            <Button fx:id="editorButton" mnemonicParsing="false" onAction="#editor" text="Editor" />
+            <Button fx:id="quitButton" mnemonicParsing="false" onAction="#quit" text="Quit" />
+         </children>
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" />
+         </padding>
+      </VBox>
+   </center>
+   <top>
+      <StackPane alignment="TOP_RIGHT">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+               <image>
+                  <Image url="@Vocabulo.png" />
+               </image>
+               <BorderPane.margin>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+               </BorderPane.margin>
+               <StackPane.margin>
+                  <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+               </StackPane.margin>
+            </ImageView>
+            <ChoiceBox fx:id="choiceBox" prefWidth="100.0">
+               <StackPane.margin>
+                  <Insets right="10.0" top="10.0" />
+               </StackPane.margin>
+            </ChoiceBox>
+         </children>
+      </StackPane>
+   </top>
+</BorderPane>
